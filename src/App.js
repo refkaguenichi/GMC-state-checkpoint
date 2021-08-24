@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import { Component } from "react";
+import { Button } from "react-bootstrap";
+import Profile from "./Components/Profile/Profile";
+class App extends Component {
+  state = {
+    show: false,
+    date: 0,
+  };
+  toggleShow = () => {
+    this.setState({ show: !this.state.show });
+  };
+  componentDidMount() {
+    setInterval(() => {
+      this.setState({ date: this.state.date + 1 });
+    }, 1000);
+  }
+  render() {
+    return (
+      <div className="App">
+        <Button variant="secondary" onClick={this.toggleShow}>
+          {this.state.show ? "Hide profile" : "Show profile"}
+        </Button>
+        {this.state.show && <Profile />}
+        <br />
+        <span>{this.state.date}</span>
+      </div>
+    );
+  }
 }
 
 export default App;

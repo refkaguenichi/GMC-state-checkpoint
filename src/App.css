@@ -24,6 +24,15 @@
   color: white;
 }
 
+
+span {
+  background-color:gray;
+  color:white;
+  border: solid 2rem gray;
+  border-radius:.2rem;
+  padding:2%
+}
+
 .App-link {
   color: #61dafb;
 }
@@ -32,6 +41,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
